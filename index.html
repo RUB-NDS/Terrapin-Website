@@ -48,7 +48,7 @@
     <p>We also showed that Terrapin can be used to enable exploitation of implementations flaws.
       For example, we found several weaknesses in the AsyncSSH servers' state machine allowing an attacker to
       sign a victim's client into another account, without the victim noticing. This allows for strong
-      phishing attacks and may grant the attacker MitM capabilities within the encrypted session.</p>
+      phishing attacks and may grant the attacker Man-in-the-Middle (MitM) capabilities within the encrypted session.</p>
 
     <p>To perform the Terrapin attack in practice, we require MitM capabilities at the network layer
       (the attacker must be able to intercept and modify the connection's traffic). Additionally,
@@ -92,10 +92,10 @@
 
     <p>Probably not.</p>
 
-    <p>The attack requires a MitM attacker that can intercept and
+    <p>The attack requires an active Man-in-the-Middle attacker that can intercept and
       modify the connection's traffic at the TCP/IP layer. Additionally,
-      we require the negotiation of either ChaCha20-Poly1305 or Encrypt-then-MAC
-      as the connection's encryption mode.
+      we require the negotiation of either ChaCha20-Poly1305, or any CBC cipher
+      in combination with Encrypt-then-MAC as the connection's encryption mode.
     </p>
 
     <h3>What can the attackers gain?</h3>
@@ -152,10 +152,19 @@
       Encrypt-and-MAC encryption mode, today might be your lucky day.</p>
 
     <p>In more technical terms, if your SSH implementations supports (and is configured to offer) the
-      <code>chacha20-poly1305@openssh.com</code> encryption algorithm or any MAC algorithm suffixed
-      <code>-etm@openssh.com</code>, you are vulnerable to Terrapin.
+      <code>chacha20-poly1305@openssh.com</code> encryption algorithm, or any encryption algorithm suffixed
+      <code>-cbc</code> in combination with any MAC algorithm suffixed <code>-etm@openssh.com</code>,
+      you are vulnerable to Terrapin.
     </p>
 
+    <p>You can use our <a href="#scanner">vulnerability scanner</a> to determine whether your client or server is vulnerable.</p>
+
+    <h3>I patched my SSH client/server, am I safe now?</h3>
+
+    <p>It depends. The strict key exchange countermeasure implemented by OpenSSH and other vendors
+      requires both, client and server, to support it, in order to take effect. Connecting a vulnerable
+      client to a patched server, and vice versa, still results in a vulnerable connection.</p>
+      
     <h3>Is this a new attack?</h3>
     <p>The Terrapin attack can be considered the first attack in a new family of attacks
       targeting cryptographic network protocols and is the first ever practically exploitable
