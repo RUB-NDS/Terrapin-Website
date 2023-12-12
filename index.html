@@ -24,6 +24,7 @@
   <section id="intro">
     <ul class="toc">
       <li><a href="#paper">Paper</a>
+      <li><a href="#scanner">Vulnerability Scanner</a></li>
       <li><a href="#question-answer">Q&amp;A</a></li>
     </ul>
   </section>
@@ -70,9 +71,20 @@
     <p><a href="TerrapinAttack.pdf">Terrapin Attack: Breaking SSH Channel Integrity
       By Sequence Number Manipulation</a>, Fabian B&auml;umer, Marcus Brinkmann, Jörg Schwenk.
     </p>
-    <p>The artifacts are available at
+    <p>The artifacts are available on
       <a href="https://github.com/RUB-NDS/Terrapin-Artifacts/">GitHub</a>.</p>
 
+    <h2 id="scanner">Vulnerability Scanner</h2>
+
+    <p>We provide a simple console application, written in Go, which can be used to determine
+    whether an SSH server or client is vulnerable to the Terrapin attack. The scanner
+    connects to your SSH server (or listens for an incoming client connection)
+    to detect, whether vulnerable encryption modes are offered and if the strict key exchange
+    countermeasure is supported. It does not perform a fully-fledged handshake nor does it
+    actually perform the attack.</p>
+
+    <p>Pre-built binaries for all major platforms and the source code are available on
+      <a href="https://github.com/RUB-NDS/Terrapin-Scanner/releases/latest">GitHub</a>.</p>
 
     <h2 id="question-answer">FAQ</h2>
 
