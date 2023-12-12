@@ -51,6 +51,8 @@ h3 {
   font-size: 2rem;
   font-weight: 600;
   line-height: 2.4rem;
+  padding-top: 3rem;
+  padding-bottom: .5rem;
 }
 h4 {
   font-size: 1.6rem;
@@ -105,7 +107,6 @@ section > * {
   margin-right: auto;
 }
 
-.illustrated {  }
 img {
   display: block;
   margin: 0 auto;
@@ -129,9 +130,7 @@ img {
   position: absolute;
   left: 50%;
   bottom: -15px;
-  -webkit-transform: translate(-50%, 50%);
-       ms-transform: translate(-50%, 50%);
-          transform: translate(-50%, 50%);
+  transform: translate(-50%, 50%);
   width: 180px;
   height: 180px;
 
@@ -193,19 +192,12 @@ button:active {
   box-shadow: inset 0 1px 1px 1px rgba(0,0,0,.4);
 }
 
-.question-list {
-}
-.question-list li {
-}
-
 .footer-logo {
   width: 130px;
   height: 130px;
   padding-bottom: 2rem;
   margin-left: 50%;
-  -webkit-transform: translateX(-50%);
-       ms-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   background-image: url("../img/alpaca-logo-medium.png");
   background-size: contain;
   background-repeat: no-repeat;
