@@ -117,7 +117,7 @@ img {
 }
 
 #intro {
-  padding-top: 65px;
+  padding-top: 80px;
 }
 #intro p {
   font-weight: 400;
@@ -128,7 +128,7 @@ img {
 .logo {
   position: absolute;
   left: 50%;
-  bottom: 0;
+  bottom: -15px;
   -webkit-transform: translate(-50%, 50%);
        ms-transform: translate(-50%, 50%);
           transform: translate(-50%, 50%);
