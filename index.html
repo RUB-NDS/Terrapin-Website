@@ -78,8 +78,7 @@
 
     <h3>I am an admin, should I drop everything and fix this?</h3>
 
-    <p>If you are using AsyncSSH in one of your products or appliances, probably yes.
-      If not, probably not.</p>
+    <p>Probably not.</p>
 
     <p>The attack requires a MitM attacker that can intercept and
       modify the connection's traffic at the TCP/IP layer. Additionally,
@@ -166,9 +165,11 @@
 
     <h3>How have vendors responded to this vulnerability?</h3>
 
-    <p>
-      <!-- TODO: Add vendor response section when available -->
-    </p>
+    <p>Many vendors have updated their SSH implementation to support an optional strict
+      key exchange. Strict key exchange is a backwards-incompatible change to the SSH
+      handshake which introduces sequence number resets and takes away an attacker's capability
+      to inject packets during the initial, unencrypted handshake. However, to take effect, both
+      client and server must support this feature.</p>
 
     <h3>What about other protocols?</h3>
 
@@ -205,6 +206,9 @@
     <h3>Responsible Disclosure Timeline</h3>
     <ul>
       <li>2023-10-17: Initial contact with OpenSSH and Ron Frederick (author of AsyncSSH)</li>
+      <li>2023-11-17: Initial contact with other SSH implementations (round 1)</li>
+      <li>2023-11-21: Initial contact with other SSH implementations (round 2)</li>
+      <li>2023-12-18: Public Disclosure</li>
     </ul>
 
   </section>
