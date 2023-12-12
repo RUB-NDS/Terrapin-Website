@@ -30,41 +30,42 @@
   </section>
 
   <section>
-    <p>SSH is an internet standard to provide secure access to network service,
+    <p>SSH is an internet standard that provides secure access to network services,
       particularly remote terminal login and file transfer within organizational networks
       and to over 15 million servers on the open internet.</p>
 
-    <p>Terrapin is a prefix truncation attack targeting the SSH protocol. More precisely,
+    <p><i>Terrapin</i> is a prefix truncation attack targeting the SSH protocol. More precisely,
       Terrapin breaks the integrity of SSH's secure channel. By carefully adjusting
       the sequence numbers during the handshake, an attacker can remove an arbitrary amount
-      of messages sent by client or server at the beginning of the secure channel without
-      either client or server noticing it.</p>
+      of messages sent by the client or server at the beginning of the secure channel without
+      the client or server noticing it.</p>
 
-    <p>The attack can be performed in practice, and allows an attacker to downgrade the connections'
+    <p>The attack can be performed in practice, allowing an attacker to downgrade the connection's
       security by truncating the extension negotiation message (RFC8308) from the transcript.
-      This can lead to the use of less secure client authentication algorithms and to the deactivation of
-      certain countermeasures against keystroke timing attacks in OpenSSH 9.5.</p>
+      The truncation can lead to using less secure client authentication algorithms and deactivating
+      specific countermeasures against keystroke timing attacks in OpenSSH 9.5.</p>
 
-    <p>We also showed that Terrapin can be used to enable exploitation of implementations flaws.
-      For example, we found several weaknesses in the AsyncSSH servers' state machine allowing an attacker to
-      sign a victim's client into another account, without the victim noticing. This allows for strong
-      phishing attacks and may grant the attacker Man-in-the-Middle (MitM) capabilities within the encrypted session.</p>
+    <p>We also showed that Terrapin can be used to enable the exploitation of implementation flaws.
+      For example, we found several weaknesses in the AsyncSSH servers' state machine, allowing an
+      attacker to sign a victim's client into another account without the victim noticing. Hence,
+      it will enable strong phishing attacks and may grant the attacker Man-in-the-Middle (MitM)
+      capabilities within the encrypted session.</p>
 
     <p>To perform the Terrapin attack in practice, we require MitM capabilities at the network layer
       (the attacker must be able to intercept and modify the connection's traffic). Additionally,
       the connection must be secured by either ChaCha20-Poly1305 or CBC with Encrypt-then-MAC.
-      However, our scan indicates a large adoption of these encryption modes, therefore Terrapin is
-      applicable to a majority of real-world SSH sessions.</p>
+      However, our scan indicates an extensive adoption of these encryption modes; therefore,
+      Terrapin applies to most real-world SSH sessions.</p>
 
     <h2>Attack Overview</h2>
 
     <img src="media/img/terrapin-attack.png">
-    <p>The image shows a practical application of the Terrapin attack. The attacker is
-      capable of dropping the EXT_INFO message, used for negotiating several protocol
-      extensions, without either client or server noticing it. Usually, packet deletion
-      would be detected by the client when receiving the next binary packet sent by the
-      server as sequence numbers would mismatch. To avoid this, an attacker injects
-      an ignored packet during the handshake to offset the sequence numbers accordingly.
+    <p>The image shows a practical application of the Terrapin attack. The attacker can
+      drop the EXT_INFO message, used for negotiating several protocol extensions, without
+      the client or server noticing it. Usually, packet deletion would be detected by
+      the client when receiving the next binary packet sent by the server, as sequence numbers
+      would mismatch. To avoid this, an attacker injects an ignored packet during the handshake
+      to offset the sequence numbers accordingly.
     </p>
 
     <h2 id="paper">Full Technical Paper (preprint; last update: 2023-10-18)</h2>
@@ -79,8 +80,8 @@
     <p>We provide a simple console application, written in Go, which can be used to determine
     whether an SSH server or client is vulnerable to the Terrapin attack. The scanner
     connects to your SSH server (or listens for an incoming client connection)
-    to detect, whether vulnerable encryption modes are offered and if the strict key exchange
-    countermeasure is supported. It does not perform a fully-fledged handshake nor does it
+    to detect whether vulnerable encryption modes are offered and if the strict key exchange
+    countermeasure is supported. It does not perform a fully-fledged handshake, nor does it
     actually perform the attack.</p>
 
     <p>Pre-built binaries for all major platforms and the source code are available on
@@ -202,13 +203,13 @@
       are reset similar to TLS, rendering it immune to our attack.</p>
 
 
-    <h3>Is this vulnerability really serious enough to deserve a name, a logo and a web page?</h3>
+    <h3>Is this vulnerability severe enough to deserve a name, a logo and a web page?</h3>
 
     <p>Terrapin is not a simple software bug that can be fixed with an update
       to a single library or component. Instead, clients and servers need
       to be updated to protect the connection against prefix truncation
       attacks. This means we need to raise awareness of the issue across all
-      SSH client and server implementations, which is a huge effort. We expect
+      SSH client and server implementations, which is a considerable effort. We expect
       that the general Terrapin attack will stay with us for many years, so we
       have a cute animal to keep us company while we help clients and servers
       to adopt the suggested countermeasures!</p>
