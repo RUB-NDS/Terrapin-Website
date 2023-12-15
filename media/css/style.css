@@ -149,17 +149,6 @@ img {
   background-repeat: no-repeat;
 }
 
-.footer-logo {
-  width: 130px;
-  height: 130px;
-  padding-bottom: 8px;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  background-image: url("../img/alpaca-logo-medium.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
 footer {
   border-top: 1px solid #ccc;
   padding: 8px 24px 0 24px;
