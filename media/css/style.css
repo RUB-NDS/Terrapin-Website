@@ -27,11 +27,15 @@
   src: url(Montserrat-Bold.ttf) format('truetype');
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html { font-size: 62.5%; }
 
 body {
-  margin: 0;
-  font-family: open sans, HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
   font-size: 1.5em;
   font-weight: 400;
   line-height: 1.6;
@@ -39,28 +43,29 @@ body {
 }
 
 h1 {
-  font-family: Montserrat, helvetica, arial, sans-serif;
   font-size: 6rem;
   font-weight: 700;
   line-height: 6.5rem;
   text-align: center;
   color: black;
-  margin: 0;
+}
+h2 {
+  font-size: 2.5rem;
+  font-weight: 650;
+  line-height: 2.9rem;
+  padding-top: 2rem;
+  padding-bottom: .5rem;
 }
 h3 {
   font-size: 2rem;
   font-weight: 600;
   line-height: 2.4rem;
-  padding-top: 3rem;
+  padding-top: 2rem;
   padding-bottom: .5rem;
-}
-h4 {
-  font-size: 1.6rem;
-  font-weight: 600;
-  line-height: 2.6rem;
 }
 p {
   font-size: 1.6rem;
+  padding-bottom: 1.3rem;
 }
 a { color: #125CCA; }
 a:hover { color: #3BA3BB; }
@@ -72,9 +77,6 @@ header {
   background-color: #50C878;
 }
 
-.toc {
-  padding: 0;
-}
 .toc li {
   display: inline-block;
   position: relative;
@@ -97,14 +99,17 @@ header {
   color: #464646;
 }
 
+hr {
+  border-color: #dadada;
+}
+
 section {
   position: relative;
   margin: 20px 0;
 }
 section > * {
   max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
 img {
@@ -112,18 +117,15 @@ img {
   margin: 0 auto;
   padding: 2rem 0;
 }
-.illustration {
-  max-height: 350px;
-  max-width: 100%;
-}
 
 #intro {
-  padding-top: 80px;
+  padding-top: 100px;
 }
 #intro p {
   font-weight: 400;
   font-size: 1.8rem;
   line-height: 3rem;
+  padding-top: 2rem;
 }
 
 .logo {
@@ -137,59 +139,6 @@ img {
   background-image: url("../img/android-chrome-512x512.png");
   background-size: contain;
   background-repeat: no-repeat;
-}
-
-/*table style from bootstrap*/
-table {
-  width: 100%;
-  padding: 1rem 0;
-}
-table th,
-table td {
-  padding: 8px;
-  line-height: 1.42857143;
-  vertical-align: top;
-  border-bottom: 1px solid #ddd;
-}
-table > thead > tr > th {
-  vertical-align: bottom;
-  border-bottom: 2px solid #ddd;
-}
-.table-condensed th,
-.table-condensed td {
-  padding: 5px;
-}
-
-.form-inline {
-  padding: 1.5rem 3rem 3rem;
-  background-color: #DDE8EF;
-}
-label { display: block; }
-input, button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  font-family: open sans, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-}
-input {
-  padding: 6px 12px;
-  width: 45%;
-}
-button {
-  color: white;
-  background-color: #F1592A;
-  border-radius: 6px;
-  padding: 6px 12px;
-}
-button:hover,
-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px #3BA3BD;
-}
-button:active {
-  box-shadow: inset 0 1px 1px 1px rgba(0,0,0,.4);
 }
 
 .footer-logo {
@@ -210,9 +159,4 @@ footer {
 .text-muted {
   font-size: 13px;
   color: #888;
-}
-
-.important {
-    background-color: #afceee;
-    padding: 10px 20px;
 }
