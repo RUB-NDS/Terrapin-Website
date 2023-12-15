@@ -149,6 +149,23 @@ img {
   background-repeat: no-repeat;
 }
 
+#acknowledgements {
+  display: flex;
+  flex-flow: wrap;
+  max-width: 640px;
+  margin: 0 auto;
+  align-items: end;
+}
+.acknowledgement {
+  display: block;
+}
+.acknowledgement > img {
+  width: 200px;
+}
+#logo-rub {
+  width: 130px;
+}
+
 footer {
   border-top: 1px solid #ccc;
   padding: 8px 24px 0 24px;
