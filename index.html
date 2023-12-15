@@ -140,7 +140,7 @@
       vulnerable as well, although this weakness cannot be exploited in a real-world scenario.</p>
 
     <h3>So how practical is the attack?</h3>
-    <p>The terrapin attack requires an active Man-in-the-Middle attacker, that means some way
+    <p>The Terrapin attack requires an active Man-in-the-Middle attacker, that means some way
       for an attacker to intercept and modify the data sent from the client or server
       to the remote peer. This is difficult on the Internet, but can be a plausible
       attacker model on the local network.</p>
@@ -153,9 +153,7 @@
 
     <h3>Is my SSH client/server vulnerable?</h3>
 
-    <p>Most likely, yes. If you refrained from updating your system's SSH implementation
-      in the last decade, or configured your SSH implementation to solely use the
-      Encrypt-and-MAC encryption mode, today might be your lucky day.</p>
+    <p>Most likely, yes.</p>
 
     <p>In more technical terms, if your SSH implementations supports (and is configured to offer) the
       <code>chacha20-poly1305@openssh.com</code> encryption algorithm, or any encryption algorithm suffixed
