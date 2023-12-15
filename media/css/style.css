@@ -53,22 +53,26 @@ h2 {
   font-size: 2.5rem;
   font-weight: 650;
   line-height: 2.9rem;
-  padding-top: 2rem;
-  padding-bottom: .5rem;
+  padding-top: 16px;
+  padding-bottom: 8px;
 }
 h3 {
   font-size: 2rem;
   font-weight: 600;
   line-height: 2.4rem;
-  padding-top: 2rem;
-  padding-bottom: .5rem;
+  padding-top: 16px;
+  padding-bottom: 8px;
 }
 p {
   font-size: 1.6rem;
+  text-align: justify;
   padding-bottom: 1.3rem;
 }
 a { color: #125CCA; }
 a:hover { color: #3BA3BB; }
+li {
+  list-style-position: inside;
+}
 
 header {
   position: relative;
@@ -77,23 +81,25 @@ header {
   background-color: #50C878;
 }
 
+.toc {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
 .toc li {
-  display: inline-block;
-  position: relative;
-  width: 31.5%;
-  box-sizing: border-box;
   background-color: #DDE8EF;
   list-style-type: none;
   text-align: center;
 }
-.toc li:not(:first-of-type) {
-  margin-left: 2%;
-}
 .toc li:hover { background-color: #B3E1EF; }
 .toc a {
-  display: inline-block;
+  display: flex;
   width: 100%;
-  padding: 2px 0 3px;
+  height: 100%;
+  padding: 4px 0;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
   font-weight: 600;
   text-decoration: none;
   color: #464646;
@@ -104,8 +110,8 @@ hr {
 }
 
 section {
-  position: relative;
-  margin: 20px 0;
+  margin: 16px 0;
+  padding: 0 24px;
 }
 section > * {
   max-width: 640px;
@@ -116,6 +122,8 @@ img {
   display: block;
   margin: 0 auto;
   padding: 2rem 0;
+  max-width: 100%;
+  width: 640px;
 }
 
 #intro {
@@ -125,7 +133,7 @@ img {
   font-weight: 400;
   font-size: 1.8rem;
   line-height: 3rem;
-  padding-top: 2rem;
+  padding-top: 8px;
 }
 
 .logo {
@@ -144,7 +152,7 @@ img {
 .footer-logo {
   width: 130px;
   height: 130px;
-  padding-bottom: 2rem;
+  padding-bottom: 8px;
   margin-left: 50%;
   transform: translateX(-50%);
   background-image: url("../img/alpaca-logo-medium.png");
@@ -154,7 +162,7 @@ img {
 
 footer {
   border-top: 1px solid #ccc;
-  padding: 1rem 3rem;
+  padding: 8px 24px 0 24px;
 }
 .text-muted {
   font-size: 13px;
