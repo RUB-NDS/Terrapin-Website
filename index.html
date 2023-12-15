@@ -168,7 +168,18 @@
     <p>It depends. The strict key exchange countermeasure implemented by OpenSSH and other vendors
       requires both, client and server, to support it, in order to take effect. Connecting a vulnerable
       client to a patched server, and vice versa, still results in a vulnerable connection.</p>
-      
+    
+    <h3>Does this vulnerability have a CVE number?</h3>
+
+    <p>
+      Yes. We got assigned a total of three CVE numbers. These are:
+      <ul>
+        <li>CVE-2023-48795: General Protocol Flaw</li>
+        <li>CVE-2023-46446: Rogue Extension Negotiation Attack in AsyncSSH</li>
+        <li>CVE-2023-46447: Rogue Session Attack in AsyncSSH</li>
+      </ul>
+    </p>
+
     <h3>Is this a new attack?</h3>
     <p>The Terrapin attack can be considered the first attack in a new family of attacks
       targeting cryptographic network protocols and is the first ever practically exploitable
@@ -231,8 +242,11 @@
     <h3>Responsible Disclosure Timeline</h3>
     <ul>
       <li>2023-10-17: Initial contact with OpenSSH and Ron Frederick (author of AsyncSSH)</li>
-      <li>2023-11-17: Initial contact with other SSH implementations (round 1)</li>
-      <li>2023-11-21: Initial contact with other SSH implementations (round 2)</li>
+      <li>2023-11-08: AsyncSSH published a patched version fixing the implementation bugs</li>
+      <li>2023-11-17: Initial contact with 17 other SSH implementation vendors (round 1)</li>
+      <li>2023-11-17: Disclosed findings to the German CERT-Bund. Findings were later forwarded to partnered CERTs by CERT-Bund.</li>
+      <li>2023-11-21: Initial contact with 12 other SSH implementations after initial feedback from round 1 (round 2)</li>
+      <li>2023-11-12: Disclosed findings to the distros mailing list</li>
       <li>2023-12-18: Public Disclosure</li>
     </ul>
 
