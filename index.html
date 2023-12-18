@@ -104,6 +104,15 @@
       in combination with Encrypt-then-MAC as the connection's encryption mode.
     </p>
 
+    <p>If you feel uncomfortable waiting for your SSH implementation to provide a patch,
+      you can workaround this vulnerability by temporarily disabling the affected 
+      chacha20-poly1305@openssh.com and -etm@openssh.com MAC algorithms in the configuration
+      of your SSH server (or client), and use unaffected algorithms like AES-GCM instead.
+    </p>
+
+    <p>Fair word of warning: If configured improperly or your client does not support these algorithms,
+      you may loose access to your server.</p>
+
     <h3>What can the attackers gain?</h3>
 
     <p>Within the paper we describe an extension downgrade attack,
