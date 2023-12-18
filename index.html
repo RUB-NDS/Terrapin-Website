@@ -216,6 +216,17 @@
       any message. While IPSec/IKE only authenticates parts of its handshake, the sequence numbers
       are reset similar to TLS, rendering it immune to our attack.</p>
 
+    <h3>What about other cipher modes?</h3>
+
+    <p>AES-GCM (RFC5647) is not affected by Terrapin as it does not use the SSH sequence numbers.
+      Instead, AES-GCM uses the IV obtained from key derivation as its nonce, incrementing it
+      after sending a binary packet. In a healthy connection, this results in the nonce being
+      at a fixed offset from the sequence number.
+    </p>
+
+    <p>The original Encrypt-and-MAC paradigma from RFC4253 protects the integrity of the plaintext,
+      thus thwarting our attack, which yields one pseudorandom block during decryption.
+    </p>
 
     <h3>Is this vulnerability severe enough to deserve a name, a logo and a web page?</h3>
 
