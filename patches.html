@@ -42,6 +42,15 @@
       the reasoning for this selection further down below.
     </p>
     <p>
+      We advise users of <a href="#win32openssh">Win32-OpenSSH</a> (the SSH implementation built into Windows 10 / 11 / Server 2019 / 2022)
+      to update their implementations to 9.5.0.0p1-Beta manually as 
+      <a href="https://github.com/PowerShell/Win32-OpenSSH/issues/2189#issuecomment-1866729729">Microsoft stated</a>
+      that they won't be delivering this update through Windows Update. While it is true that the impact on Win32-OpenSSH
+      is limited (and obviously doesn't hit Microsoft's bar for servicing), we must stress that "strict kex" requires both
+      peers to support it. Microsoft's decision consequently allows unknown server-side implementation bugs to remain
+      exploitable in a Terrapin-like attack, even if the server got patched to support "strict kex".
+    </p>
+    <p>
       This list may not be complete. If you find any implementation that is not listed but has released support for "strict kex",
       feel free to <a href="https://github.com/RUB-NDS/Terrapin-Website/pulls">open up a PR over on GitHub</a>.
     </p>
@@ -200,6 +209,11 @@
           <td>5.10.3 and earlier</td>
           <td><a href="https://help.panic.com/releasenotes/transmit5/">5.10.4</a></td>
         </tr>
+        <tr id="win32openssh">
+          <td>Win32-OpenSSH*</td>
+          <td>9.4.0.0p1-Beta</td>
+          <td><a href="https://github.com/PowerShell/Win32-OpenSSH/releases/tag/v9.5.0.0p1-Beta">9.5.0.0p1-Beta</a></td>
+        </tr>
         <tr id="winscp">
           <td>WinSCP</td>
           <td>6.1.2 and earlier</td>
@@ -222,7 +236,6 @@
         <li>KiTTY: <a href="https://github.com/cyd01/KiTTY/issues/520">cyd01/KiTTY#520</a></li>
         <li>sshj*: <a href="https://github.com/hierynomus/sshj/issues/916">hierynomus/sshj#916</a></li>
         <li>Twisted Conch SSH: <a href="https://github.com/twisted/twisted/issues/12057">twisted/twisted#12057</a></li>
-        <li>Win32-OpenSSH*: <a href="https://github.com/PowerShell/Win32-OpenSSH/issues/2189">PowerShell/Win32-OpenSSH#2189</a></li>
       </ul>
     </p>
 
