@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Fabian Bäumer, Marcus Brinkmann, Jörg Schwenk">
+  <meta name="keywords" content="Terrapin attack, SSH vulnerability, SSH protocol, Security breach, Integrity, Network security, Prefix truncation attack, Cyber Security Research">
+  <link rel="apple-touch-icon" sizes="180x180" href="media/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="media/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="media/img/favicon-16x16.png">
+  <link rel="manifest" href="media/img/site.webmanifest">
+  <meta name="theme-color" content="#ffffff">
+  <title>Terrapin Attack - Patches</title>
+  <link href="media/css/style.css" rel="stylesheet" type="text/css">
+  <script async src="https://analytics.terrapin-attack.com/script.js" data-website-id="3972bcd7-1b3f-469b-b999-ce55441b27ae"></script>
+</head>
+
+<body>
+  <header id="top">
+    <h1>Terrapin Attack</h1>
+    <div class="logo"></div>
+  </header>
+  <section id="intro">
+    <ul class="toc">
+      <li><a href="index.html#paper">Paper</a>
+      <li><a href="index.html#scanner">Vulnerability Scanner</a></li>
+      <li><a href="index.html#question-answer">Q&amp;A</a></li>
+      <li><a href="#">Patches</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <p>
+      Due to the widespread adoption of affected cipher modes, patching Terrapin (CVE-2023-48795) is notoriously difficult.
+      To make matters worse, "strict kex" requires both peers, client and server, to support it in order to take effect.
+      A wide variety of SSH implementations started adopting "strict kex" since public disclosure. This site is an attempt
+      to capture affected products, and their patched release versions (if any).
+    </p>
+    <p>
+      All implementations marked with an asterisk were contacted as part of our responsible disclosure. You may also find
+      the reasoning for this selection further down below.
+    </p>
+    <p>
+      This list may not be complete. If you find any implementation that is not listed but has released support for "strict kex",
+      feel free to <a href="https://github.com/RUB-NDS/Terrapin-Website/pulls">open up a PR over on GitHub</a>.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Implementation</th>
+          <th>Affected Versions</th>
+          <th>Patched Version(s)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="asyncssh">
+          <td>AsyncSSH*</td>
+          <td>2.14.1 and earlier</td>
+          <td><a href="https://asyncssh.readthedocs.io/en/latest/changes.html#release-2-14-2-18-dec-2023">2.14.2</a></td>
+        </tr>
+        <tr id="bitvise">
+          <td>Bitvise SSH*</td>
+          <td>9.31 and earlier</td>
+          <td><a href="https://www.bitvise.com/ssh-client-version-history#933">9.33</a></td>
+        </tr>
+        <tr id="connectbot">
+          <td>ConnectBot*</td>
+          <td>1.9.9 and earlier</td>
+          <td><a href="https://github.com/connectbot/connectbot/releases/tag/v1.9.10">1.9.10</a></td>
+        </tr>
+        <tr id="crushftp">
+          <td>CrushFTP</td>
+          <td>10.5.6 and earlier</td>
+          <td><a href="https://www.crushftp.com/crush10wiki/Wiki.jsp?page=Update">10.6.0</a></td>
+        </tr>
+        <tr id="cyclonessh">
+          <td>CycloneSSH*</td>
+          <td>2.3.2 and earlier</td>
+          <td><a href="https://oryx-embedded.com/download/#changelog">2.3.4</a></td>
+        </tr>
+        <tr id="dropbear">
+          <td>Dropbear*</td>
+          <td>2022.83 and earlier</td>
+          <td><a href="https://github.com/mkj/dropbear/commit/6e43be5c7b99dbee49dc72b6f989f29fdd7e9356">To be released</a></td>
+        </tr>
+        <tr id="erlang">
+          <td>Erlang/OTP SSH*</td>
+          <td>OTP 26.2 and earlier<br>OTP 25.3.2.7 and earlier<br>OTP 24.3.4.14 and earlier</td>
+          <td><a href="https://github.com/erlang/otp/releases/tag/OTP-26.2.1">OTP 26.2.1</a><br><a href="https://github.com/erlang/otp/releases/tag/OTP-25.3.2.8">OTP 25.3.2.8</a><br><a href="https://github.com/erlang/otp/releases/tag/OTP-24.3.4.15">OTP 24.3.4.15</a></td>
+        </tr>
+        <tr id="filezilla">
+          <td>FileZilla Client</td>
+          <td>3.66.1 and earlier</td>
+          <td><a href="https://filezilla-project.org/versions.php">3.66.4</a></td>
+        </tr>
+        <tr id="golang">
+          <td>Golang x/crypto/ssh*</td>
+          <td>0.16.0 and earlier</td>
+          <td><a href="https://groups.google.com/g/golang-announce/c/qA3XtxvMUyg">0.17.0</a></td>
+        </tr>
+        <tr id="jsch">
+          <td>JSch (Fork)*</td>
+          <td>0.2.14 and earlier</td>
+          <td><a href="https://github.com/mwiede/jsch/releases/tag/jsch-0.2.15">0.2.15</a></td>
+        </tr>
+        <tr id="libssh">
+          <td>libssh*</td>
+          <td>0.10.5 and earlier<br>0.9.7 and earlier</td>
+          <td><a href="https://www.libssh.org/2023/12/18/libssh-0-10-6-and-libssh-0-9-8-security-releases/">0.10.6<br>0.9.8</a></td>
+        </tr>
+        <tr id="libssh2">
+          <td>libssh2*</td>
+          <td>1.11.0 and earlier</td>
+          <td><a href="https://github.com/libssh2/libssh2/commit/d34d9258b8420b19ec3f97b4cc5bf7aa7d98e35a">To be released</a></td>
+        </tr>
+        <tr id="mavericklegacy">
+          <td>Maverick Legacy*</td>
+          <td>1.7.55 and earlier</td>
+          <td><a href="https://jadaptive.com/important-java-ssh-security-update-new-ssh-vulnerability-discovered-cve-2023-48795/">1.7.56</a></td>
+        </tr>
+        <tr id="mavericksynergy">
+          <td>Maverick Synergy*</td>
+          <td>3.0.21 and earlier (Hotfix)<br>3.0.10 and earlier (OSS)</td>
+          <td><a href="https://jadaptive.com/important-java-ssh-security-update-new-ssh-vulnerability-discovered-cve-2023-48795/">3.0.22<br>3.1.0-SNAPSHOT</a></td>
+        </tr>
+        <tr id="nova">
+          <td>Nova</td>
+          <td>11.7 and earlier</td>
+          <td><a href="https://nova.app/releases/#v11.8">11.8</a></td>
+        </tr>
+        <tr id="openssh">
+          <td>OpenSSH*</td>
+          <td>9.5 / 9.5p1 and earlier</td>
+          <td><a href="https://www.openssh.com/txt/release-9.6">9.6 / 9.6p1</a></td>
+        </tr>
+        <tr id="paramiko">
+          <td>Paramiko*</td>
+          <td>3.3.1 and earlier</td>
+          <td><a href="https://www.paramiko.org/changelog.html#3.4.0">3.4.0</a></td>
+        </tr>
+        <tr id="pkixssh">
+          <td>PKIX-SSH*</td>
+          <td>14.3 and earlier</td>
+          <td><a href="https://roumenpetrov.info/secsh/#news20231220">14.4</a></td>
+        </tr>
+        <tr id="proftpd">
+          <td>ProFTPD*</td>
+          <td>1.3.8a and earlier</td>
+          <td><a href="http://www.proftpd.org/docs/RELEASE_NOTES-1.3.8b">1.3.8b</a></td>
+        </tr>
+        <tr id="putty">
+          <td>PuTTY*</td>
+          <td>0.79 and earlier</td>
+          <td><a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/changes.html">0.80</a></td>
+        </tr>
+        <tr id="russh">
+          <td>Russh*</td>
+          <td>0.40.1 and earlier</td>
+          <td><a href="https://github.com/warp-tech/russh/releases/tag/v0.40.2">0.40.2</a></td>
+        </tr>
+        <tr id="securecrt">
+          <td>SecureCRT*</td>
+          <td>9.4.2 and earlier</td>
+          <td><a href="https://www.vandyke.com/products/securecrt/history.txt">9.4.3</a></td>
+        </tr>
+        <tr id="sftpgateway">
+          <td>SFTP Gateway</td>
+          <td>3.4.5 and earlier</td>
+          <td><a href="https://help.thorntech.com/docs/sftp-gateway-3.0/aws-cve-2023-48795/">3.4.6</a></td>
+        </tr>
+        <tr id="sftpgo">
+          <td>SFTPGo</td>
+          <td>2.5.5 and earlier<br>2.4.5 and earlier</td>
+          <td><a href="https://github.com/drakkan/sftpgo/releases/tag/v2.5.6">2.5.6</a><br><a href="https://github.com/drakkan/sftpgo/releases/tag/v2.4.6">2.4.6</a></td>
+        </tr>
+        <tr id="ssh2">
+          <td>ssh2*</td>
+          <td>0.14.0 and earlier</td>
+          <td><a href="https://github.com/mscdex/ssh2/releases/tag/v1.15.0">0.15.0</a></td>
+        </tr>
+        <tr id="teraterm">
+          <td>Tera Term*</td>
+          <td>5.0 and earlier<br>4.107 and earlier</td>
+          <td><a href="https://github.com/TeraTermProject/teraterm/releases/tag/v5.1">5.1</a><br><a href="https://github.com/TeraTermProject/teraterm/releases/tag/v4.108">4.108</a></td>
+        </tr>
+        <tr id="thrussh">
+          <td>Thrussh*</td>
+          <td>0.34.0 and earlier</td>
+          <td><a href="https://crates.io/crates/thrussh/0.35.1">0.35.1</a></td>
+        </tr>
+        <tr id="tinyssh">
+          <td>TinySSH</td>
+          <td>20230101 and earlier</td>
+          <td><a href="https://github.com/janmojzis/tinyssh/commit/ebaa1bd23c2c548af70cc8151e85c74f4c8594bb">To be released</a></td>
+        </tr>
+        <tr id="transmit">
+          <td>Transmit</td>
+          <td>5.10.3 and earlier</td>
+          <td><a href="https://help.panic.com/releasenotes/transmit5/">5.10.4</a></td>
+        </tr>
+        <tr id="winscp">
+          <td>WinSCP</td>
+          <td>6.1.2 and earlier</td>
+          <td><a href="https://winscp.net/eng/docs/history#6.2.2">6.2.2</a><br>(Not yet released)</td>
+        </tr>
+        <tr id="xshell7">
+          <td>XShell 7*</td>
+          <td>Build 0142 and earlier</td>
+          <td><a href="https://www.netsarang.com/en/xshell-update-history/">Build 0144</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      There are also open issues for the following SSH implementations referencing Terrapin (CVE-2023-48795). Note that
+      listing an implementation here does not imply that Terrapin will affect the implementation. Instead, this is meant
+      to keep track of implementations, which might implement "strict kex" in the future.
+      <ul>
+        <li>Apache MINA SSHD*: <a href="https://github.com/apache/mina-sshd/issues/445">apache/mina-sshd#445</a></li>
+        <li>KiTTY: <a href="https://github.com/cyd01/KiTTY/issues/520">cyd01/KiTTY#520</a></li>
+        <li>sshj*: <a href="https://github.com/hierynomus/sshj/issues/916">hierynomus/sshj#916</a></li>
+        <li>Twisted Conch SSH: <a href="https://github.com/twisted/twisted/issues/12057">twisted/twisted#12057</a></li>
+        <li>Win32-OpenSSH*: <a href="https://github.com/PowerShell/Win32-OpenSSH/issues/2189">PowerShell/Win32-OpenSSH#2189</a></li>
+      </ul>
+    </p>
+
+    <p>
+      Aside from the SSH implementations marked with an asterisk, we included the following implementations, vendors, and CERTs
+      in our responsible disclosure process. Due to the lack of proper security contacts and response, we were not able to
+      disclose our findings to some of them.
+      <ul>
+        <li>AbsoluteTelnet (Celestial Software)</li>
+        <li>Amazon AWS</li>
+        <li>CERT-Bund</li>
+        <li>Cisco</li>
+        <li>Ericsson</li>
+        <li>Lancom Systems</li>
+        <li>Microsoft</li>
+        <li>Mikrotik</li>
+        <li>Partnered CERTs of CERT-Bund (via CERT-Bund)</li>
+        <li>SSH Server for Windows (Georgia Softworks)</li>
+        <li>Tectia SSH (SSH Communications Security, Inc.)</li>
+        <li>Termius (Termius Corporation)</li>
+      </ul>
+    </p>
+
+    <p>
+      The selection of SSH implementations contacted during responsible disclosure was based on several factors. We aimed
+      to achieve a decent coverage of "strict kex" on public disclosure by focusing on the underlying SSH implementations.
+      We gathered all SSH implementations listed in publicly available resources (<a href="https://en.wikipedia.org/wiki/Comparison_of_SSH_clients">Wikipedia SSH clients</a>,
+      <a href="https://en.wikipedia.org/wiki/Comparison_of_SSH_servers">Wikipedia SSH servers</a>, <a href="https://ssh-comparison.quendi.de/">Quendi SSH implementation comparison</a>)
+      as a baseline. We complemented these with potentially vulnerable implementations from our internet-wide SSH scans and
+      some implementations that were well-known to us and not included in either of these lists.
+      Based on this dataset, we contacted all implementations that fulfilled the following criteria:
+      <ol>
+        <li>Not based on another implementation already included, or heavily modified.</li>
+        <li>Supports <code>chacha20-poly1305@openssh.com</code> or any <code>-etm@openssh.com</code> algorithm.</li>
+        <li>Supports SSH extension negotiation (RFC8308).</li>
+      </ol>
+    </p>
+  </section>
+</body>
+
+</html>
