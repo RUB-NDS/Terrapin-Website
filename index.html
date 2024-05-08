@@ -34,9 +34,12 @@
     <h2>News</h2>
     <p>
       <ul>
-        <li>The Terrapin Attack will be presented at <a href="https://rwc.iacr.org/2024/program.php">Real World Crypto Symposium 2024</a>, and <a href="https://www.usenix.org/conference/usenixsecurity24">USENIX Security Symposium 2024</a>.</li>
+        <li>The accepted paper including the artifact appendix is now available.</li>
+        <li>The Terrapin Attack will be presented at <a href="https://rwc.iacr.org/2024/program.php">Real World Crypto Symposium 2024</a>,
+          <a href="https://www.blackhat.com/us-24/briefings/schedule/index.html#terrapin-attack-breaking-ssh-channel-integrity-by-sequence-number-manipulation-40179">Black Hat USA 2024</a>,
+          and <a href="https://www.usenix.org/conference/usenixsecurity24">USENIX Security Symposium 2024</a>.</li>
         <li>We compiled a comprehensive <a href="patches.html">list of SSH implementations</a> adopting the "strict kex" countermeasure by OpenSSH.</li>
-        <li>Recommended Articles: 
+        <li>Recommended Articles:
           <a href="https://arstechnica.com/security/2023/12/hackers-can-break-ssh-channel-integrity-using-novel-data-corruption-attack">Ars Technica</a> (Dan Goodin),
           <a href="https://www.theregister.com/2023/12/20/terrapin_attack_ssh">The Register</a> (Connor Jones)</li>
       </ul>
@@ -85,11 +88,12 @@
     </p>
 
     <hr>
-    <h2 id="paper">Full Technical Paper (preprint; last update: 2023-10-18)</h2>
+    <h2 id="paper">Full Technical Paper</h2>
     <p><a href="TerrapinAttack.pdf">Terrapin Attack: Breaking SSH Channel Integrity
       By Sequence Number Manipulation</a>, Fabian B&auml;umer, Marcus Brinkmann, Jörg Schwenk.
     </p>
-    <p>Also <a href="https://arxiv.org/abs/2312.12422">available on arXiv</a>. The artifacts are available on
+    <p>Also available on the <a href="https://www.usenix.org/conference/usenixsecurity24/presentation/b%C3%A4umer">USENIX Security '24 website</a>
+      and <a href="https://arxiv.org/abs/2312.12422">arXiv</a>. The artifacts are available on
       <a href="https://github.com/RUB-NDS/Terrapin-Artifacts/">GitHub</a>.</p>
 
     <hr>
@@ -119,7 +123,7 @@
     </p>
 
     <p>If you feel uncomfortable waiting for your SSH implementation to provide a patch,
-      you can workaround this vulnerability by temporarily disabling the affected 
+      you can workaround this vulnerability by temporarily disabling the affected
       chacha20-poly1305@openssh.com encryption and -etm@openssh.com MAC algorithms in the configuration
       of your SSH server (or client), and use unaffected algorithms like AES-GCM instead.
     </p>
@@ -192,7 +196,7 @@
     <p>It depends. The strict key exchange countermeasure implemented by OpenSSH and other vendors
       requires both, client and server, to support it, in order to take effect. Connecting a vulnerable
       client to a patched server, and vice versa, still results in a vulnerable connection.</p>
-    
+
     <h3>Does this vulnerability have a CVE number?</h3>
 
     <p>
@@ -305,7 +309,7 @@
   </section>
 
   <footer>
-    <p class="text-muted">Last updated 2024-03-21. The Terrapin
+    <p class="text-muted">Last updated 2024-05-08. The Terrapin
       website is free to use under
       a <a href="//creativecommons.org/publicdomain/zero/1.0/">CC0</a>
       license. Web design by <a href="http://sarahmadden.com/">Sarah
